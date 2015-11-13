@@ -1,8 +1,10 @@
 package com.example.brianmissedthebus.mytru;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,17 +17,20 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
 
     ImageButton nav, bus, schedule;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.setContentView(R.layout.activity_home_page);
-
         nav = (ImageButton) findViewById(R.id.navButton);
         nav.setOnClickListener(this);
         bus = (ImageButton) findViewById(R.id.busButton);
         bus.setOnClickListener(this);
         schedule = (ImageButton) findViewById(R.id.scheduleButton);
         schedule.setOnClickListener(this);
+
     }
 
     @Override
@@ -51,10 +56,14 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
     }
 
     public void onClick(View v){
+        Log.d("crash test", "entered onClick");
         switch(v.getId()){
             case R.id.scheduleButton:
+                Log.d("crash test", "schedule button case");
                 Intent newActivity0 = new Intent(HomePage.this, LogIn.class);
+                Log.i("crash test", "schedule intent made");
                 startActivity(newActivity0);
+                Log.i("crash test", "schedule intent activated");
                 break;
             case R.id.navButton:
                 Intent newActivity1 = new Intent(HomePage.this, ComingSoon.class);

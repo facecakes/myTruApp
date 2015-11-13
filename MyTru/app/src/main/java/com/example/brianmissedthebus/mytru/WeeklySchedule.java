@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
 
 public class WeeklySchedule extends AppCompatActivity implements View.OnClickListener{
@@ -14,7 +15,6 @@ public class WeeklySchedule extends AppCompatActivity implements View.OnClickLis
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("Test", "entered Weekly Schedule");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weekly_schedule);
         back = (ImageButton) findViewById(R.id.backButton4);
