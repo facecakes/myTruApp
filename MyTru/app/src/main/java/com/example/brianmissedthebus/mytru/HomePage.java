@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 
 public class HomePage extends AppCompatActivity implements View.OnClickListener {
 
-    ImageButton nav, bus, schedule;
+    ImageButton nav, bus, schedule, back;
 
 
 
@@ -30,6 +30,8 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         bus.setOnClickListener(this);
         schedule = (ImageButton) findViewById(R.id.scheduleButton);
         schedule.setOnClickListener(this);
+        back = (ImageButton) findViewById(R.id.backButton5);
+        back.setOnClickListener(this);
 
     }
 
@@ -72,6 +74,9 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
             case R.id.busButton:
                 Intent newActivity2 = new Intent(HomePage.this, ComingSoon.class);
                 startActivity(newActivity2);
+                break;
+            case R.id.backButton5:
+                finish();
                 break;
 
         }

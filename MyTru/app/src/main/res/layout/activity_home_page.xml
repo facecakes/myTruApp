@@ -23,10 +23,10 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/imageButton7"
+                android:id="@+id/backButton5"
                 android:src="@drawable/arrow_blue"
                 android:background="@android:color/transparent"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <TextView
                 android:layout_width="wrap_content"
