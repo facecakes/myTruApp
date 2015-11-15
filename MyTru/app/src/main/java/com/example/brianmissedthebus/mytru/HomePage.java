@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,6 +21,7 @@ import java.util.Set;
 public class HomePage extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton nav, bus, schedule, back;
+    TextView navT, busT, scheduleT;
 
     // FAKE STUDENT DATABASE: Initializing with some fake student numbers and class info.
     public static final String DATA = "com.example.brianmissedthebus.mytru";
@@ -28,7 +30,6 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.setContentView(R.layout.activity_home_page);
 
         // Setting up student and course information.
@@ -42,6 +43,13 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         schedule.setOnClickListener(this);
         back = (ImageButton) findViewById(R.id.backButton5);
         back.setOnClickListener(this);
+        navT = (TextView) findViewById(R.id.mapText);
+        navT.setOnClickListener(this);
+        busT = (TextView) findViewById(R.id.busText);
+        busT.setOnClickListener(this);
+        scheduleT = (TextView) findViewById(R.id.courseText);
+        scheduleT.setOnClickListener(this);
+
 
     }
 
@@ -49,6 +57,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         Log.d("crash test", "entered onClick");
         switch(v.getId()){
             case R.id.scheduleButton:
+            case R.id.courseText:
                 Log.d("crash test", "schedule button case");
                 Intent newActivity0 = new Intent(HomePage.this, LogIn.class);
                 Log.i("crash test", "schedule intent made");
@@ -56,10 +65,12 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                 Log.i("crash test", "schedule intent activated");
                 break;
             case R.id.navButton:
+            case R.id.mapText:
                 Intent newActivity1 = new Intent(HomePage.this, ComingSoon.class);
                 startActivity(newActivity1);
                 break;
             case R.id.busButton:
+            case R.id.busText:
                 Intent newActivity2 = new Intent(HomePage.this, ComingSoon.class);
                 startActivity(newActivity2);
                 break;
