@@ -66,7 +66,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
                 break;
             case R.id.navButton:
             case R.id.mapText:
-                Intent newActivity1 = new Intent(HomePage.this, ComingSoon.class);
+                Intent newActivity1 = new Intent(HomePage.this, MapActivity.class);
                 startActivity(newActivity1);
                 break;
             case R.id.busButton:
