@@ -15,7 +15,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
     ImageButton back;
     ImageView map;
-    float zoomFactor = 0.5f;
+    float zoom = 0.5f;
     boolean zoomedOut = false;
 
     @Override
@@ -72,8 +72,8 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
                     zoomedOut = false;
                 }
                 else {
-                    v.setScaleX(zoomFactor);
-                    v.setScaleY(zoomFactor);
+                    v.setScaleX(zoom);
+                    v.setScaleY(zoom);
                     zoomedOut = true;
                 }
                 break;
