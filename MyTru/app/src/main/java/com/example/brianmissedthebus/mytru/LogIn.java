@@ -5,10 +5,12 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -51,7 +53,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
                 finish();
                 break;
             case R.id.saveButton:
-                studentNumber = numberIn.getText().toString();
+                studentNumber = numberIn.getText().toString().toUpperCase();
                 password = passIn.getText().toString();
                 //verify
                 Log.i("Test", "strings set");
@@ -108,8 +110,13 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
                 }
             }
         }
-        if(!retVal)
+        if(!retVal){
             Log.d("app", "Login unsuccessful with: " + studentID + " PW: " + pw);
+            Toast toast = Toast.makeText(getApplicationContext(), "Invalid Username or Password", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
+
 
         return retVal;
     }
