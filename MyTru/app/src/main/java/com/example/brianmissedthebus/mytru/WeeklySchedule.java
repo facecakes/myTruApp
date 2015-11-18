@@ -1,10 +1,12 @@
 package com.example.brianmissedthebus.mytru;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -43,6 +45,36 @@ public class WeeklySchedule extends AppCompatActivity implements View.OnClickLis
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_layout, listItems);
         display.setAdapter(adapter);
+
+        setListeners(display);
+    }
+
+    public void setListeners(ListView v) {
+        v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent newActivityDaily = new Intent(WeeklySchedule.this, DailySchedule.class);
+                switch (position) {
+                    case 0:
+                        newActivityDaily.putExtra("Day", days[position]);
+                        break;
+                    case 1:
+                        newActivityDaily.putExtra("Day", days[position]);
+                        break;
+                    case 2:
+                        newActivityDaily.putExtra("Day", days[position]);
+                        break;
+                    case 3:
+                        newActivityDaily.putExtra("Day", days[position]);
+                        break;
+                    case 4:
+                        newActivityDaily.putExtra("Day", days[position]);
+                        break;
+                }
+                startActivity(newActivityDaily);
+                Log.i("Test", "Intent passed");
+            }
+        });
     }
 
     public String[] getListItems() {
